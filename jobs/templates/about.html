@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Page Banner Section -->
+<section class="page-banner" style="background-color: #2b2b2b;">
+  {% for i in about_image_bg %}
+  <div class="image-layer" style="background-image: url('{{i.image_bg_about.url}}');"></div>
+{% endfor %}
+  <div class="auto-container">
+    <h2 class="textBanner" >About Hemam Al Ataa Company    <span class="fa" id="lineHeader"></span> </h2>
+      
+
+  </div>
+
+
+
+</section>
+
+<!--End Banner Section -->
+<section class="about-section" style="padding-bottom: 70px;">
+
+  <div class="auto-container">
+    <div class="row clearfix">
+      <!--Left Column-->
+      <div class="text-column col-lg-12 col-md-12 col-sm-12">
+        <div class="inner">
+          <div class="sec-title">
+            <h2 class="secAra">ِAbout Hemam Al Ataa Co. for General Trading and Contracting Company</h2>
+          </div>
+          <div class="text-content">
+            {% for i in data %}
+            <div class="text"> {% if LANGUAGE_CODE == 'en' %}{{i.text_about}}
+              {% elif LANGUAGE_CODE == 'ar' %}{{i.text_about_ar}}{% endif %} </div>
+
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+ 
+        <div class="image-column col-lg-12 col-md-12 col-sm-12" style="padding-top:55px" >
+          <figure class="image wow slideInRight" data-wow-delay="0ms">
+            {% for i in data %}
+            <img src="{{i.image_middle_about}}" width="100%" height="420px" alt="" />
+            {% endfor %}
+          </figure>
+        </div>
+    
+    </div>
+
+  </div>
+  </div>
+</section>
+
+  <!--Causes Section-->
+  <section class="causes-section" style="padding-bottom: 70px;">
+
+
+    <div class="auto-container">
+
+      <div class="inner-container wow fadeInUp" data-wow-delay="0ms">
+
+        {% for i in data %}
+
+        <div class="row clearfix" style="padding-top: 70px;">
+
+          <!--Cause Block-->
+          <div class="cause-block col-lg-4 col-md-6 col-sm-12">
+            <div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+              <div class="barContainerTop">
+              </div>
+              <div class="lower-content">
+                <h3><a href="">Our Vision</a></h3>
+                <div class="text"> {% if LANGUAGE_CODE == 'en' %}{{i.vission}}
+                  {% elif LANGUAGE_CODE == 'ar' %}{{i.vission_ar}}{% endif %}</div>
+
+              </div>
+              <div class="barContainerBottom"> </div>
+            </div>
+          </div>
+
+          <div class="cause-block col-lg-4 col-md-6 col-sm-12">
+            <div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+              <div class="barContainerTop">
+              </div>
+              <div class="lower-content">
+                <h3><a href="">Our litter</a></h3>
+                <div class="text"> {% if LANGUAGE_CODE == 'en' %}{{i.letter}}
+                  {% elif LANGUAGE_CODE == 'ar' %}{{i.letter_ar}}{% endif %}</div>
+
+              </div>
+              <div class="barContainerBottom"> </div>
+            </div>
+          </div>
+
+          <div class="cause-block col-lg-4 col-md-6 col-sm-12">
+            <div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+              <div class="barContainerTop">
+              </div>
+              <div class="lower-content">
+                <h3><a href="">Our history</a></h3>
+                <div class="text"> {% if LANGUAGE_CODE == 'en' %}{{i.history_text}}
+                  {% elif LANGUAGE_CODE == 'ar' %}{{i.history_text_ar}}{% endif %}</div>
+
+              </div>
+              <div class="barContainerBottom"> </div>
+            </div>
+          </div>
+
+        </div>
+        {% endfor %}
+
+      </div>
+  </section>
+
+
+
+
+
+{% endblock body %}

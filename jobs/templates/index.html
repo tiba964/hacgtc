@@ -1,0 +1,271 @@
+{% extends 'base2.html' %}
+{% block body %}
+{% load static %}
+
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<section class="banner-section style-two home-four">
+  <div class="banner-carousel kausid-carousel owl-theme owl-carousel"
+      data-options='{"loop": true, "margin": 0, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "768" :{ "items" : "1" } , "1000":{ "items" : "1" }}}'>
+      <!-- Slide Item -->
+
+      {% for slider in slider_show %}
+
+
+      <!-- Slide Item -->
+      <div class="slide-item">
+        <div class="image-layer" style="background-image: url('{{slider.slide_image_index.url}}')"></div>
+
+          <div class="auto-container">
+              <div class="content-box">
+                  <div class="content">
+                      <div class="inner">
+                          <div class="sub-title">{% if LANGUAGE_CODE == 'en' %}{{slider.slide_subtitle_index}}
+                            {% elif LANGUAGE_CODE == 'ar' %}{{slider.slide_subtitle_index_ar}}{% endif %}</div>
+                          <h2>{% if LANGUAGE_CODE == 'en' %}{{slider.slide_title_index}}
+                            {% elif LANGUAGE_CODE == 'ar' %}{{slider.slide_title_index_ar}}{% endif %}</h2>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+
+
+  </div>
+</section>
+
+<section class="about-section">
+
+  <div class="auto-container">
+      <div class="row clearfix">
+          <!--Left Column-->
+          <div class="left-column col-lg-7 col-md-12 col-sm-12">
+              <div class="inner">
+                  <div class="sec-title">
+
+                      <h2> {% trans  "About Hemam Al Ataa Co. for General Trading and Contracting Company" %}  <span class="fa" id="lineHeader"></span></h2>
+                  </div>
+                  {% for i in data %}
+                  <div class="text">{% if LANGUAGE_CODE == 'en' %}{{i.text_about_index}}
+                    {% elif LANGUAGE_CODE == 'ar' %}{{i.text_about_index_ar}}{% endif %}</div> {% endfor %}
+                  <div class="link-box" style="padding-top: 20px;"><a href="{% url 'jobs:about' %}" class="default-link"> 
+                    {% trans  "Read more" %}    <span class="fa fa-arrow-right"></span></a></div>
+
+              </div>
+          </div>
+          <!--Right Column-->
+          <div class="right-column col-lg-5 col-md-12 col-sm-12">
+              <div class="about-feature-box">
+                  <div class="outer clearfix">
+                      <!--About Feature-->
+                      <div class="about-feature col-md-6 col-sm-12">
+                          <div class="inner-box">
+                              <div class="content-box">
+                                  <div class="inner">
+                                      <h3><a href="#">{% trans  "Efficiency and sincerity" %}</a></h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!--About Feature-->
+                      <div class="about-feature col-md-6 col-sm-12">
+                          <div class="inner-box">
+                              <div class="content-box">
+                                  <div class="inner">
+                                      <h3><a href="#">{% trans  "Honor and credibility" %}</a></h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!--About Feature-->
+                      <div class="about-feature col-md-6 col-sm-12">
+                          <div class="inner-box">
+                              <div class="content-box">
+                                  <div class="inner">
+                                      <h3><a href="#">{% trans  "Effectiveness" %}</a></h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!--About Feature-->
+                      <div class="about-feature col-md-6 col-sm-12">
+                          <div class="inner-box">
+                              <div class="content-box">
+                                  <div class="inner">
+                                      <h3><a href="#">{% trans  "Focus on customer satisfaction" %}</a></h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+</section>
+<section class="join-events" style="padding-bottom: 50px;">
+  <!--Upper Box-->
+  <div class="upper-box">
+    
+      <div class="auto-container">
+          <div class="row clearfix">
+              <div class="text-column col-lg-6 col-md-12 col-sm-12">
+                  <div class="inner">
+                      <div class="sec-title">
+                          <h2>{% trans  "Our Services" %}  <span class="fa" id="lineHeader"></span></h2>
+                      </div>
+                      <div class="text-content">
+                        {% for i in data %}
+                        <div class="text">  {% if LANGUAGE_CODE == 'en' %} {{ i.text_about_index }}
+                            {% elif LANGUAGE_CODE == 'ar' %}  {{ i.text_about_index_ar }} {% endif %}  
+                         </div>
+                        {% endfor %}
+
+                          <div class="link-box"><a href="{% url 'jobs:services' %}" class="default-link">{% trans  "view all services" %}    <span class="fa fa-arrow-right"></span></a></div>
+                      </div>
+                  </div>
+              </div>
+              <!--Image Column-->
+              <div class=" col-lg-6 col-md-12 col-sm-12">
+                  <!--Lower Box-->
+                  <div class="lower-box">
+                      <!-- <div class="image-layer" ></div> -->
+                      <div class="auto-container">
+                          <div class="row clearfix">
+                              <div class="service-block col-lg-6 col-md-8 col-sm-12 wow fadeInLeft"
+                              data-wow-delay="0ms">
+                              <div class="inner-box">
+                                <div class="icon"><img src="{% static 'careers/images/icons/cs.png' %}" width="60" height="50"></img></div>
+                                <h3><a href="#">{% trans  "consultancy services" %}</a></h3>
+                            </div>
+                          </div>
+                          <!--Service Block-->
+
+                          <!--Service Block-->
+                          <div class="service-block col-lg-6 col-md-8 col-sm-12 wow fadeInLeft"
+                              data-wow-delay="600ms">
+                              <div class="inner-box">
+                                <div class="icon"><img src="{% static 'careers/images/icons/eh.png' %}" width="60" height="50"></img></div>
+                                <h3><a href="#">{% trans  "Establishing desalination" %} </a></h3>
+                            </div>
+                          </div>
+                          
+
+                           
+                             
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+
+</section>
+<section class="join-events">
+  <!--Upper Box-->
+  
+
+</section>
+      <!--project section-->
+      <section class="join-events" style="padding-bottom: 50px;">
+        <!--Upper Box-->
+        <div class="upper-box">
+          
+            <div class="auto-container">
+                <div class="row clearfix">
+                  
+                    <div class="text-column col-lg-12 col-md-12 col-sm-12">
+                        <div class="inner">
+                            <div class="sec-title">
+                                <h2>{% trans  "Our Projects" %}  <span class="fa" id="lineHeader"></span></h2>
+                            </div>
+                            <div class="text-content">
+                                {% for i in data %}
+                                <div class="text">  {% if LANGUAGE_CODE == 'en' %} {{ i.text_project_index }}
+                                    {% elif LANGUAGE_CODE == 'ar' %}  {{ i.text_project_index_ar }} {% endif %}  
+                                 </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--Image Column-->
+                    <!-- <div class=" image-column col-lg-6 col-md-12 col-sm-12">
+                        {% for i in data %}
+                                                <figure class="image-box">
+                            <img src="{{i.image_about_index}}" alt="" width="360px" height="330px">
+                        </figure>
+                        {% endfor %}
+                    </div> -->
+      
+                </div>
+            </div>
+        </div>
+      
+      
+      </section>
+<!-- <div class="auto-container" >
+       <div class="sec-title centered">
+              <h2  style="text-align: center;">Our Projects  <span class="fa" id="lineHeader"></span></h2>
+              <div class="text"  style="text-align: center;"></div>
+          </div>
+</div> -->
+{% for project in project %}  {% if forloop.counter < 4 %}
+<section class="causes-section alternate-two" style="border:1px solid #e9e9e9;">
+    <!--Upper Box-->
+
+    <div class="auto-container">
+
+
+
+        <div class="row clearfix">
+
+            <!--Image Column-->
+            <!--Lower Box-->
+            <div class="gallery-item all masonry-item medical shelter col-lg-6 col-md-12 col-sm-12"
+                style="padding-right:0px; padding-left:0px">
+                <div class="inner-box">
+                    <figure class="image-box">
+                        <img src="{{project.project_image_one.url}}" alt="" width="360px" height="330px">
+                        <a href="{{project.project_image_one.url}}" class="icon lightbox-image"
+                            data-fancybox="gallery"><span class="fa fa-search-plus"></span></a>
+                    </figure>
+                </div>
+            </div>
+            <div class="text-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner">
+
+                    <div class="text-content">
+                        <div class="text" style="padding-top: 20px;">  {% if LANGUAGE_CODE == 'en' %} {{ project.project_desc2 }}
+                          {% elif LANGUAGE_CODE == 'ar' %}  {{ project.project_desc2_ar }} {% endif %}  
+                        </div>
+
+                        <div class="link-box"><a href="{% url 'jobs:projects_detail' project.id %}" class="default-link"
+                                style="font-size: 14px;">{% trans  "view more" %}    <span class="fa fa-arrow-right"></span></a></div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+
+</section>
+{% endif %} {% endfor %}
+
+<div class="see-all">
+    <a href="{% url 'jobs:project' %}" class="theme-btn btn-style-eight"><span
+                      class="btn-title">{% trans  "See All Projects" %}</span></a></div>
+<!--About Section Four-->
+
+
+
+
+{% endblock body %}

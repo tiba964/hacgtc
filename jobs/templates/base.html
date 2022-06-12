@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="en">
+ 
+<head>
+  <meta charset="utf-8" />
+  <title>{% trans  " Hemam Al Ataa Company for General Trading and Contracting Company " %}</title>
+ 
+  <!-- Stylesheets -->
+  <link href="{% static 'careers/css/bootstrap.css' %}" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  {% if LANGUAGE_CODE == 'en' %}<link href="{% static 'careers/css/style.css' %}" rel="stylesheet" />
+                                  {% elif LANGUAGE_CODE == 'ar' %}<link href="{% static 'careers/css/style_arabic.css' %}" rel="stylesheet" />{% endif %}
+  
+  <!-- Responsive File -->
+  <link href="{% static 'careers/css/responsive.css' %}" rel="stylesheet" />
+
+  <link rel="shortcut icon" href="{% static 'careers/images/logo2.png' %}" type="image/x-icon" />
+  <!-- Responsive Settings -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="icon"></div>
+    </div>
+    <header class="main-header header-style-one">
+
+
+      <!-- Header Upper -->
+      <div class="header-upper">
+          <div class="auto-container">
+              <div class="inner-container clearfix">
+                  <!--Logo-->
+                  <div class="logo-box">
+                   
+                      <div class="logo"><a href="{% url 'jobs:index' %}"
+                              title="Hemam Al Ataa Company for General Trading and Contracting Company"><img src="{% static 'careers/images/logo2.png' %}"
+                                  width="139" height="50" alt="Hemam Al Ataa Company for General Trading and Contracting Company"
+                                  title="Hemam Al Ataa Company for General Trading and Contracting Company"></a></div>
+                  </div>
+
+                  <!--Nav Box-->
+                  <div class="nav-outer clearfix">
+                      <!--Mobile Navigation Toggler-->
+                      <div class="mobile-nav-toggler"><span class="icon flaticon-bars"></span></div>
+
+                      <!-- Main Menu -->
+                      <nav class="main-menu navbar-expand-md navbar-light">
+                        <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                          <ul class="navigation clearfix">
+                            <li class="current dropdown"><a href="{% url 'jobs:index' %}">{% trans "HOME" %}</a>
+
+                              <li ><a href="{% url 'jobs:about' %}">{% trans "ABOUT HAC" %}</a>
+                                 
+                              </li>
+                              <li><a href="{% url 'jobs:services' %}">{% trans "OUR SERVICES" %}</a></li>
+      
+                              <li><a href="{% url 'jobs:project' %}">{% trans "OUR PROJECTS" %}</a></li>
+          
+               
+                            
+                              <li><a href="{% url 'jobs:contact' %}">{% trans "CONTACT US" %}</a></li>
+      
+                              <li class="dropdown"><a>{% trans "LANGUAGE" %}</a>
+                                <ul>
+                                  <li> <form action="{% url 'set_language' %}"   method="post">
+                                    {% csrf_token %}
+                                    {% get_current_language as LANGUAGE_CODE %}                                         
+                                    <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
+                                    {% if LANGUAGE_CODE == 'ar' %}
+                                        <button type='submit' name='language' value='en' class="theme-btn btn-style-ones" >
+                                            <span class="btn-title" style="padding-top:8px">English</span>
+                                        </button>
+                                    {% else %}
+                                        <button type='submit' name='language' value='ar' class="theme-btn btn-style-ones">
+                                            <span class="btn-title">العربيه</span>
+                                        </button>
+                                    {% endif %}
+                                </form></li>
+                                  <li></li>
+                                </ul>
+                              </li>
+      
+                                                                                 
+                          </ul>
+                          
+                      </div>
+                  </nav>
+                      <!-- Main Menu End-->
+
+
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--End Header Upper-->
+
+   
+      <!-- Mobile Menu  -->
+      <div class="mobile-menu">
+          <div class="menu-backdrop"></div>
+          <div class="close-btn"><span class="icon flaticon-cancel"></span></div>
+
+          <nav class="menu-box">
+              <div class="nav-logo"><a href="{% url 'jobs:index' %}"><img src="{% static 'careers/images/logo2.png' %}" alt="" title=""></a></div>
+              <div class="menu-outer">
+                  <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+              </div>
+              <!--Social Links-->
+              <div class="social-links">
+                  <ul class="clearfix">
+                      <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                      <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                      <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                  </ul>
+              </div>
+          </nav>
+      </div><!-- End Mobile Menu -->
+  </header>
+        <!-- Main Header -->
+    
+      <!-- End Main Header -->
+
+ {% block body%}
+  
+{% endblock body%}
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+
+        <div class="auto-container">
+            <!--Widgets Section-->
+            <div class="widgets-section">
+                <div class="row clearfix">
+
+                    <!--Column-->
+                    <div class="column  col-lg-5 mb-3">
+                        <div class="footer-widget logo-widget">
+                            <div class="widget-content">
+
+                                <div class="text">
+                                The HAC based in Iraq, adopts excellency in all its
+                                    construction projects and for all its customers by submitting projects that
+                                    adhere to the highest quality standards at the lowest cost and time
+                                    possible.</div>
+                                <ul class="social-links clearfix">
+                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Column-->
+
+                    <!--Column-->
+                    <div class="column col-lg-3 col-sm-6 mb-3 wow fadeIn">
+                        <div class="footer-widget links-widget">
+                            <div class="widget-content">
+                                <h3>Quick links</h3>
+                                <ul>
+                                    <li><a href="{% url 'jobs:about' %}">About HCA</a></li>
+                                    <li><a href="{% url 'jobs:services' %}">Our services</a></li>
+                                    <li><a href="{% url 'jobs:project' %}">Our projects</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Column-->
+                    <div class="column col-lg-4 col-sm-6 mb-3 wow fadeIn">
+                        <div class="footer-widget links-widget">
+                            <div class="widget-content">
+                                <h3>Contact Us</h3>
+                                <ul class="contact-info">
+                                    <li><span class="fa flaticon-location"></span>  Shirqat District, Salah al-Din, Iraq</li>
+                                    <li><a href="tel:+964 772 928 8392"><span class="fa fa-phone-alt"></span>
+                                        +964 772 928 8392</a></li>
+                                    <li><a href="mailto:info@ha-gtc.com"><span
+                                                class="fa fa-envelope-open"></span>
+                                            info@ha-gtc.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="auto-container">
+                <div class="inner">
+                    <!--Copyright-->
+                    <div class="copyright">
+                      {% trans   "Copyrights" %} (c) 2021
+                      <a href="#">{% trans "Hemam Al Ataa" %}</a>
+                       {% trans "All rights reserved." %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+<!-- Main Footer -->
+
+  </div>
+  <!--End pagewrapper-->
+
+  <!--Scroll to top-->
+  <div class="scroll-to-top scroll-to-target" data-target="html">
+    <span class="flaticon-up-arrow"></span>
+  </div>
+  <script src="{% static 'careers/js/jquery.js' %}"></script>
+  <script src="{% static 'careers/js/popper.min.js' %}"></script>
+  <script src="{% static 'careers/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'careers/js/jquery-ui.js' %}"></script>
+  <script src="{% static 'careers/js/jquery.fancybox.js' %}"></script>
+  <script src="{% static 'careers/js/owl.js' %}"></script>
+  <script src="{% static 'careers/js/appear.js' %}"></script>
+  <script src="{% static 'careers/js/wow.js' %}"></script>
+
+  <script src="{% static 'careers/js/scrollbar.js' %}"></script>
+  <script src="{% static 'careers/js/validate.js' %}"></script>
+  <script src="{% static 'careers/js/paroller.js' %}"></script>
+  <script src="{% static 'careers/js/custom-script.js' %}"></script>
+</body>
+
+</html>

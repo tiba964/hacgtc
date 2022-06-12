@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load static %}
+
+
+<section class="page-banner" style="background-color: #2b2b2b;">
+    {% for i in about_image_bg %}
+  <div class="image-layer" style="background-image: url('{{i.image_bg_about.url}}');"></div>
+{% endfor %}
+      <div class="auto-container">
+          <h2 class="textBanner">Contact Us  <span class="fa" id="lineHeader"></span></h2>
+      </div>
+
+   
+
+  </section>
+ 
+<section class="contact-section contact-page">
+
+  <div class="auto-container">
+  
+     
+      <div class="row clearfix">
+          
+            <!--Image Column--->
+            <div class="image-column col-md-6 col-xs-12 col-sm-6">
+              <div class="info-container">
+                  <div class="row clearfix">
+                      <!--Info Block-->
+                      <div class="info-block">
+                          <div class="inner">
+                              <h3>Contact Information</h3>
+                              <ul class="info">
+                               <li><strong >Phone : </strong> <a href="tel:+964 772 928 8392">+964 772 928 8392</a></li>
+                                  <li><strong >E-mail : </strong> <a href="mailto:info@ha-gtc.com">info@ha-gtc.com</a></li>
+                                  <li><strong >Address : </strong> Shirqat District, Salah al-Din, Iraq</li>
+
+                                  <li><strong >WorkTime : </strong> <a href="">Sunday to Thursday 8 am : 5 pm</a></li>
+
+                              </ul>
+                              <ul class="social-links clearfix">
+                                  <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                                  <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                  <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                              </ul>
+                          </div>
+                      </div>
+                     
+                  </div>
+              </div>
+          </div>
+          <!--Form Column--->
+          <div class="form-column col-md-6 col-xs-12 col-sm-6">
+              <div class="inner" style="padding-top: 20px;">
+                  <div class="default-form contact-form">
+                    <form method="post"  enctype="multipart/form-data">
+                      {% csrf_token %}
+                         <div class="row clearfix">                                    
+                              <div class="col-md-12 col-sm-12 form-group">
+                                <div class="field-label">{% trans "Fullname" %}</div>
+                                <input type="text" name="full_name" value="" placeholder="" required />
+                                  </div>
+                              
+                              <div class="col-md-12 col-sm-12 form-group">
+                                <div class="field-label">{% trans "Email" %}</div>
+                                <input type="email" name="email" value="" placeholder="" required />
+                                </div>
+      
+                             
+
+                          
+
+                              <div class="col-md-12 col-sm-12 form-group">
+                                <div class="field-label">{% trans "Message" %}</div>
+                      <textarea name="message" placeholder=""></textarea>
+                     </div>
+      
+                              <div class="col-md-12 col-sm-12 form-group">
+                                  <button class="theme-btn btn-style-one" type="submit" name="submit-form"><span class="btn-title">Send Message</span></button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+        
+
+      </div>
+
+     
+  </div>
+  
+
+
+
+
+</section>
+
+
+  
+    {% endblock body %} 
